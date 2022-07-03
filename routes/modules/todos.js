@@ -30,6 +30,7 @@ router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Todo.findByPk(id)
     .then(todo => res.render('edit', { todo: todo.toJSON() }))
+    .catch(error => console.log(error))
 })
 
 router.put('/:id', (req, res) => {
